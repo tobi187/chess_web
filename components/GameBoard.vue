@@ -10,7 +10,11 @@ type Square = {
 const board: Square[][] = []
 var isblack = false
 
-for (var i = 0; i < 8; i++) {
+var els = [...Array(10).keys()].map(e => { piece: "PiecesPawn", color: "" })
+
+board.push([...Array(10).keys()].map(e => {piece: "", color: ""}))
+
+for (var i = 0; i < 6; i++) {
     const row = []
     for (var j = 0; j < 8; j++) {
         if (isblack) {
@@ -28,7 +32,7 @@ const view_board = board.flat()
 
 </script>
 <template>
-    <div class=" <container p-20 grid grid-cols-8 gap-0">
+    <div class=" <container p-40 grid grid-cols-8 gap-0 h-screen w-screen">
         <WhiteSquare v-for="v, k in view_board" :key="k" :color="v.color" />
     </div>
 </template>
