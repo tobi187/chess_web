@@ -8,14 +8,17 @@ class Socket {
     connection;
     room_key = "";
     gameStarted = false
+    test = "oho"
 
     constructor() {
         this.connection = io("ws://localhost:5000")
     }
 
     join(key: string) {
-        this.connection.emit("join", { key: key }, (res : JoinResponse) => {
-            this.room_key = res.roomKey
+        this.connection.emit("join", { key: key }, (res : number) => {
+            if (res === 200) {
+                this.room_key = key
+            }
         })
     }
 
@@ -24,8 +27,6 @@ class Socket {
             this.room_key = res.roomKey
         })
     }
-    
-    
 }
 
-export {Socket}
+export { Socket }

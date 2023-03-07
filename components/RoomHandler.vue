@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { url } from 'inspector';
-
 const prop = defineProps<{
     url: string
 }>()
