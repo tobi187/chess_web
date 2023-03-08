@@ -5,7 +5,7 @@ type JoinResponse = {
 }
 
 class Socket {
-    connection;
+    connection
     room_key = "";
     gameStarted = false
     test = "oho"
@@ -22,9 +22,10 @@ class Socket {
         })
     }
 
-    create() {
+    create(saver: Ref<string>) {
         this.connection.emit("create", (res: JoinResponse) => {
             this.room_key = res.roomKey
+            saver.value = this.room_key
         })
     }
 }
