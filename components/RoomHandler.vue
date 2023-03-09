@@ -3,7 +3,7 @@ const prop = defineProps<{
     url: string
 }>()
 
-const text = ref(prop.url)
+var text = ref('')
 
 const emit = defineEmits<{
   (e: 'create'): void
@@ -22,7 +22,7 @@ const tryJoin = () => {
 <template>
     <div class="p-3 w-full">
         <div class="flex justify-center">
-            <input type="text" v-model="text" placeholder="RoomKey" />
+            <input type="text" placeholder="RoomKey" :value="prop.url" @input="(ev) => text = (ev.target as HTMLInputElement).value" />
         </div>
         <div class="flex justify-center gap-9">
             <button @click="emit('create')" class="border-1">Create</button>
