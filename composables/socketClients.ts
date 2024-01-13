@@ -4,6 +4,14 @@ type JoinResponse = {
     roomKey: string
 }
 
+const useConnector = (key: Ref<string>) => {
+    if (key.value) {
+        
+    } else {
+
+    }
+}
+
 class Socket {
     connection
     room_key = "";

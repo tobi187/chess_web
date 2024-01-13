@@ -2,8 +2,8 @@ import type { ConcreteComponent } from "vue"
 
 type Square = {
     color: string,
-    piece: string | ConcreteComponent,
-    team: string
+    piece?: ConcreteComponent,
+    team?: string
 }
 
 const generateField = () => {
@@ -11,7 +11,7 @@ const generateField = () => {
     field.push(pieceRow("w", true))
     field.push(pawnRow("w", false))
     for (let i = 0; i < 4; i++) {
-        var row = [...Array(8).keys()].map(el => ({piece: "square", team: "", color: (i+el) % 2 === 0 ? "bg-white" : "bg-black"}))
+        var row = [...Array(8).keys()].map(el => ({piece: "square", color: (i+el) % 2 === 0 ? "bg-white" : "bg-black"}))
         field.push(row)
     }
     field.push(pawnRow("b", true))
